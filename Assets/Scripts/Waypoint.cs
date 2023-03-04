@@ -25,7 +25,11 @@ public class Waypoint : MonoBehaviour
     }
 
     public GameObject roadSegment() {
-        return this.transform.parent.parent.gameObject; 
+        Transform current = transform;
+        while (current.parent != null) {
+            current = current.parent;
+        }
+        return current.gameObject;
     }
     
     void OnDrawGizmos() {
