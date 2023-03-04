@@ -36,7 +36,7 @@ public class Dijkstra : MonoBehaviour
                     if (!distance.Contains(new Tuple<Waypoint, float>(waypointInfo.waypoint, float.MaxValue))) {
                         distance.Add(new Tuple<Waypoint, float>(waypointInfo.waypoint, float.MaxValue));
                     }
-                    if (!unvisited.Contains(waypointInfo.waypoint)) {
+                    if (!unvisited.Contains(waypointInfo.waypoint) && waypointInfo.waypoint.active) {
                         unvisited.Add(waypointInfo.waypoint);
                     }
                     parents.Add(new Tuple<Waypoint, Waypoint>(waypointInfo.waypoint, current));

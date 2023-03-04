@@ -9,7 +9,7 @@ public class Waypoint : MonoBehaviour
 
     [SerializeField]
     public List<WaypointInfo> waypoints;
-    public bool enabled;
+    public bool active;
     void Start()
     {
         enabled = true;
