@@ -2315,6 +2315,14 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[0].waypoint
       value: 
       objectReference: {fileID: 1937579524}
+    - target: {fileID: 4001865031592234781, guid: de3ab39cf417df5459601247b2506de9, type: 3}
+      propertyPath: waypoints.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001865032040255220, guid: de3ab39cf417df5459601247b2506de9, type: 3}
+      propertyPath: waypoints.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6289491557374175653, guid: de3ab39cf417df5459601247b2506de9, type: 3}
       propertyPath: m_RootOrder
       value: 38
@@ -2399,6 +2407,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 226807909}
     m_Modifications:
+    - target: {fileID: 806642601670986471, guid: f37b505c26515b644b51a616898a2972, type: 3}
+      propertyPath: waypoints.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 806642601670986471, guid: f37b505c26515b644b51a616898a2972, type: 3}
       propertyPath: waypoints.Array.data[0].waypoint
       value: 
