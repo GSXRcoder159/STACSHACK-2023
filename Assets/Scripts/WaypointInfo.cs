@@ -10,10 +10,10 @@ public class WaypointInfo
     [SerializeField]
     public Waypoint waypoint;
     [SerializeField]
-    public int weight;
+    public float weight;
 
 
-    public WaypointInfo(Waypoint _waypoint, int _weight) {
+    public WaypointInfo(Waypoint _waypoint, float _weight) {
         waypoint = _waypoint;
         weight = _weight;
     }

@@ -9,9 +9,21 @@ public class Waypoint : MonoBehaviour
 
     [SerializeField]
     public List<WaypointInfo> waypoints;
-    void Update()
+    void Start()
     {
-        
+        foreach (WaypointInfo waypointInfo in waypoints) {
+            if (waypointInfo.weight == 0) {
+                waypointInfo.weight = WeightCalc.CalculateWeight(this, waypointInfo.waypoint);
+            }
+        }
+    }
+
+    public Lane lane () {
+        return this.transform.parent.GetComponent<Lane>();
+    }
+
+    public GameObject roadSegment() {
+        return this.transform.parent.parent.gameObject; 
     }
     
     void OnDrawGizmos() {
@@ -20,12 +32,15 @@ public class Waypoint : MonoBehaviour
             foreach (WaypointInfo waypointInfo in waypoints) {
                 Waypoint waypoint = waypointInfo.waypoint;
                 if (waypoint != null) {
-                    if (this.transform.parent.parent != waypoint.transform.parent.parent) {
+                    //If the connection is between segments
+                    if (this.roadSegment() != waypoint.roadSegment()) {
                         Gizmos.color = Color.red;
                     }
-                    else if (this.transform.parent == waypoint.transform.parent) {
+                    //if the connection is between lanes
+                    else if (this.lane() == waypoint.lane()) {
                         Gizmos.color = Color.green;
                     }
+                    //if the connection is in the same lane
                     else {
                         Gizmos.color = Color.yellow;
                     }

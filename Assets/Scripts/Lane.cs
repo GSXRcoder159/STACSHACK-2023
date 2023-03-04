@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Lane : MonoBehaviour
 {
-    public Lane nextLane;
-    public Waypoint firstWaypoint;
+    public Waypoint nextWaypoint;
     private Waypoint lastWaypoint;
     void Awake()
     {
-        if (nextLane != null) {
+        if (nextWaypoint != null) {
             lastWaypoint = null;
             foreach (Transform child in this.GetComponentInChildren<Transform>()) {
                 Waypoint waypoint = child.gameObject.GetComponent<Waypoint>();;
@@ -17,7 +17,10 @@ public class Lane : MonoBehaviour
                     lastWaypoint = waypoint;
                 }
             }
-            lastWaypoint.waypoints.Add(new WaypointInfo(nextLane.firstWaypoint, 1));
+            if (lastWaypoint != null) {
+                lastWaypoint.waypoints.Add(new WaypointInfo(nextWaypoint, 0));
+            }
+            
         }   
         
     }
