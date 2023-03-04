@@ -15,7 +15,7 @@ public class Dijkstra : MonoBehaviour
     }
     static List<Waypoint> dijkstra(Waypoint startPoint, Waypoint endPoint)
     {
-        List<Tuple<Waypoint, int>> distance = new List<Tuple<Waypoint, int>>();
+        List<Tuple<Waypoint, float>> distance = new List<Tuple<Waypoint, float>>();
         List<Waypoint> visited = new List<Waypoint>(); 
         List<Waypoint> unvisited = new List<Waypoint>();
         List<Waypoint> path = new List<Waypoint>();
@@ -23,18 +23,18 @@ public class Dijkstra : MonoBehaviour
         Waypoint current = startPoint;
 
         foreach (WaypointInfo waypointInfo in startPoint.waypoints) {
-            distance.Add(new Tuple<Waypoint, int>(waypointInfo.waypoint, int.MaxValue));
+            distance.Add(new Tuple<Waypoint, float>(waypointInfo.waypoint, float.MaxValue));
             unvisited.Add(waypointInfo.waypoint);
         }
-        distance.Add(new Tuple<Waypoint, int>(startPoint, 0));
+        distance.Add(new Tuple<Waypoint, float>(startPoint, 0));
         parents.Add(new Tuple<Waypoint, Waypoint>(startPoint, null));
 
         while (current != endPoint) {
             foreach (WaypointInfo waypointInfo in current.waypoints) {
                 if (!visited.Contains(waypointInfo.waypoint)) {
                     // add a distance entry
-                    if (!distance.Contains(new Tuple<Waypoint, int>(waypointInfo.waypoint, int.MaxValue))) {
-                        distance.Add(new Tuple<Waypoint, int>(waypointInfo.waypoint, int.MaxValue));
+                    if (!distance.Contains(new Tuple<Waypoint, float>(waypointInfo.waypoint, float.MaxValue))) {
+                        distance.Add(new Tuple<Waypoint, float>(waypointInfo.waypoint, float.MaxValue));
                     }
                     if (!unvisited.Contains(waypointInfo.waypoint)) {
                         unvisited.Add(waypointInfo.waypoint);
@@ -49,7 +49,7 @@ public class Dijkstra : MonoBehaviour
             foreach (WaypointInfo waypointInfo in current.waypoints) {
                 if (!visited.Contains(waypointInfo.waypoint)) {
                     if (distance.Find(x => x.Item1 == current).Item2 + waypointInfo.weight < distance.Find(x => x.Item1 == waypointInfo.waypoint).Item2) {
-                        distance[distance.FindIndex(x => x.Item1 == waypointInfo.waypoint)] = new Tuple<Waypoint, int>(waypointInfo.waypoint, distance.Find(x => x.Item1 == current).Item2 + waypointInfo.weight);
+                        distance[distance.FindIndex(x => x.Item1 == waypointInfo.waypoint)] = new Tuple<Waypoint, float>(waypointInfo.waypoint, distance.Find(x => x.Item1 == current).Item2 + waypointInfo.weight);
                     }
                 }
             }

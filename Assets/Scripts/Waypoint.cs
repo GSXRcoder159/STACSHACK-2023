@@ -9,8 +9,10 @@ public class Waypoint : MonoBehaviour
 
     [SerializeField]
     public List<WaypointInfo> waypoints;
+    public bool enabled;
     void Start()
     {
+        enabled = true;
         foreach (WaypointInfo waypointInfo in waypoints) {
             if (waypointInfo.weight == 0) {
                 waypointInfo.weight = WeightCalc.CalculateWeight(this, waypointInfo.waypoint);
