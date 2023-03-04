@@ -261,6 +261,7 @@ MonoBehaviour:
     weight: 0
   - waypoint: {fileID: 3943791837462596211}
     weight: 0
+  active: 0
 --- !u!1 &3943791835771051048
 GameObject:
   m_ObjectHideFlags: 0
@@ -424,6 +425,7 @@ MonoBehaviour:
     weight: 0
   - waypoint: {fileID: 3943791836618591485}
     weight: 0
+  active: 0
 --- !u!1 &3943791836750818927
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,6 +573,7 @@ MonoBehaviour:
   waypoints:
   - waypoint: {fileID: 0}
     weight: 0
+  active: 0
 --- !u!1 &3943791837082134434
 GameObject:
   m_ObjectHideFlags: 0
@@ -686,6 +689,7 @@ MonoBehaviour:
     weight: 0
   - waypoint: {fileID: 3943791837206657474}
     weight: 0
+  active: 0
 --- !u!1 &3943791837185382161
 GameObject:
   m_ObjectHideFlags: 0
@@ -797,6 +801,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypoints: []
+  active: 0
 --- !u!1 &3943791837206657596
 GameObject:
   m_ObjectHideFlags: 0
@@ -912,3 +917,4 @@ MonoBehaviour:
     weight: 0
   - waypoint: {fileID: 3943791837462596211}
     weight: 0
+  active: 0
