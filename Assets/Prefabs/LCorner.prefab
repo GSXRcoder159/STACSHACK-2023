@@ -63,7 +63,7 @@ GameObject:
   - component: {fileID: 5030617323112434195}
   m_Layer: 0
   m_Name: WaypointR3
-  m_TagString: Untagged
+  m_TagString: WPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 5030617322469245564}
   m_Layer: 0
   m_Name: WaypoinL2
-  m_TagString: Untagged
+  m_TagString: WPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -339,7 +339,7 @@ GameObject:
   - component: {fileID: 5030617322979037624}
   m_Layer: 0
   m_Name: WaypointR1
-  m_TagString: Untagged
+  m_TagString: WPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -451,7 +451,7 @@ GameObject:
   - component: {fileID: 5030617323442834589}
   m_Layer: 0
   m_Name: WaypointR2
-  m_TagString: Untagged
+  m_TagString: WPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -599,7 +599,7 @@ GameObject:
   - component: {fileID: 5030617323685450233}
   m_Layer: 0
   m_Name: WaypointL3
-  m_TagString: Untagged
+  m_TagString: WPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -711,7 +711,7 @@ GameObject:
   - component: {fileID: 5030617323707186988}
   m_Layer: 0
   m_Name: WaypointL1
-  m_TagString: Untagged
+  m_TagString: WPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

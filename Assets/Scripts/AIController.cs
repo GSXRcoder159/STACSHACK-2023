@@ -18,6 +18,8 @@ public class AIController : MonoBehaviour
     public float stoppingSpeedLimit = 15f;
     public int fitness;
 
+    private bool finished = false;
+
     public Actor actor;
     private Vector3 targetPosition;
 
@@ -70,10 +72,20 @@ public class AIController : MonoBehaviour
                 speed = 0f;
             }
             rotation = 0f;
+            finished = true;
             fitness++;
         }
         // set the actor's speed and rotation
         actor.SetSpeed(speed);
         actor.SetRotation(rotation);
+    }
+
+    public void setTarget(Transform newTarget) {
+        targetTransform = newTarget;
+        finished = false;
+    }
+
+    public bool isFinished() {
+        return finished;
     }
 }

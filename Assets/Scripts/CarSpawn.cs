@@ -5,12 +5,14 @@ using System.Linq;
 
 public class CarSpawn : MonoBehaviour
 {
-    public int count = 20;
+    public Waypoint startWaypoint;
+    public Waypoint endWaypoint;
+    public int count = 50;
     public GameObject carPrefab;
     public Rigidbody actorPrefab;
     public List<GameObject> cars;
     public Transform target;
-    int genTime = 20;
+    int genTime = 45;
     float startTime = 0;
     public int generation = 1;
 
@@ -20,10 +22,20 @@ public class CarSpawn : MonoBehaviour
     void Start()
     {
         for (int i = 0; i < count; i++) {
-            GameObject car = Instantiate(carPrefab, transform.position, transform.rotation);
+            GameObject car = Instantiate(carPrefab, startWaypoint.transform.position, startWaypoint.transform.rotation);
+            WaypointNavigatorAI waypointNavigator = car.GetComponent<WaypointNavigatorAI>();
             Actor actor = car.GetComponent<Actor>();
-            actor.actor = actorPrefab;
             AIController ai = car.GetComponent<AIController>();
+
+            // waypointNavigator.navAI = ai;
+            // Debug.Log("WaypointNavigator: " + waypointNavigator.gameObject.name);
+            // Debug.Log("Start: " + startWaypoint);
+            // Debug.Log("End: " + endWaypoint);
+            waypointNavigator.startWaypoint = startWaypoint;
+            waypointNavigator.endWaypoint = endWaypoint;
+
+            actor.actor = actor.GetComponent<Rigidbody>();
+            ai.actor = actor;
             ai.targetTransform = target;
             ai.dSpeed = Random.Range(0f, ai.actor.maxSpeed);
             ai.dReverseSpeed = Random.Range(ai.actor.minSpeed, 0f);
@@ -40,8 +52,16 @@ public class CarSpawn : MonoBehaviour
 
     GameObject GeneSwap(AIController parent1, AIController parent2) {
         GameObject car = Instantiate(carPrefab, this.transform.position, this.transform.rotation);
+        WaypointNavigatorAI waypointNavigator = car.GetComponent<WaypointNavigatorAI>();
+        Actor actor = car.GetComponent<Actor>();
         AIController ai = car.GetComponent<AIController>();
+        actor.actor = actor.GetComponent<Rigidbody>();
+        ai.actor = actor;
         ai.targetTransform = target;
+
+        // waypointNavigator.navAI = ai;
+        waypointNavigator.startWaypoint = startWaypoint;
+        waypointNavigator.endWaypoint = endWaypoint;
 
         ai.dSpeed = (parent1.dSpeed + parent2.dSpeed) / 2.0f;
         ai.dReverseSpeed = (parent1.dReverseSpeed + parent2.dReverseSpeed) / 2.0f;
