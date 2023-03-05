@@ -7,19 +7,19 @@ public class Actor : MonoBehaviour
     public float speed = 0f;
     public float rotation = 0f;
     public float acceleration = 30f;
-    public float rotationAcceleration = 10f;
+    public float rotationAcceleration = 100f;
 
     public float breakSpeed = 100f;
     public float reverseSpeed = 30f;
-    public float idleSpeed = 10f;
-    public float idleRotationSpeed = 5f;
+    public float idleSpeed = 0f;
+    public float idleRotationSpeed = 0f;
 
     public float maxSpeed = 100f;
     public float minSpeed = -30f;
     public float maxTurnSpeed = 30f;
 
     public float forwardVal = 0f;
-    public float turnVal = 0f;
+    public float turnVal = 100f;
 
     public Rigidbody actor;
 

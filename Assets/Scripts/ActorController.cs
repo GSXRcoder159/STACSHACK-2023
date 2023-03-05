@@ -6,10 +6,11 @@ public class ActorController : MonoBehaviour {
 
     public Transform targetTransform;
 
-    public float dSpeed = 5f;
+    public float dSpeed = 3f;
     public float dReverseSpeed = -2f;
-    public float dRotation = 10f;
-    public float dFinishRadius = 2f;
+    public float dRotation = 100f;
+    public float dFinishRadius = 1f;
+    public float stoppingSpeedLimit = 15f;
 
     private Actor actor;
     private Vector3 targetPosition;
@@ -54,7 +55,13 @@ public class ActorController : MonoBehaviour {
             }
         }
         else {
-            speed = 0f;
+             if (actor.GetSpeed() > stoppingSpeedLimit) {
+                speed = dReverseSpeed;
+            }
+            else {
+                speed = 0f;
+                Debug.Log("Reached target");
+            }
             rotation = 0f;
         }
 
