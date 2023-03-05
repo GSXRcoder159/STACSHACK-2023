@@ -10,9 +10,14 @@ public class ActorController : MonoBehaviour {
     public float dReverseSpeed = -2f;
     public float dRotation = 100f;
     public float dFinishRadius = 1f;
-    public float stoppingSpeedLimit = 15f;
+    public float stoppingDistance = 30f;
+    public float stoppingSpeed = 40f;
+    public float reverseTurnDistance = 20f;
+    public float stoppingSpeedLimit = 50f;
 
-    private Actor actor;
+    private bool finished = false;
+
+    public Actor actor;
     private Vector3 targetPosition;
 
     void Start() {
@@ -33,39 +38,42 @@ public class ActorController : MonoBehaviour {
 
             if (relative_pos > 0) {
                 // target is in front of the actor
-                speed = dSpeed;
+                speed = 1f;
 
-                if (distance < 20f && actor.GetSpeed() > 20f) {
-                    speed = 0f;
+                if (distance < stoppingDistance && actor.GetSpeed() > stoppingSpeed) {
+                    speed = -1f;
                 }
 
             }
             else {
                 // target is behind the actor
-                speed = dReverseSpeed;
+                if (distance < reverseTurnDistance) {
+                    speed = -1f;
+                }
+                else {
+                    speed = 1f;
+                }
             }
 
             // determine which direction to turn
             float angle = Vector3.SignedAngle(transform.forward, (targetPosition - transform.position).normalized, Vector3.up);
             if (angle > 0) {
-                rotation = dRotation;
+                rotation = 1f;
             }
             else {
-                rotation = -dRotation;
+                rotation = -1f;
             }
         }
         else {
              if (actor.GetSpeed() > stoppingSpeedLimit) {
-                speed = dReverseSpeed;
+                speed = -1f;
             }
             else {
                 speed = 0f;
-                Debug.Log("Reached target");
             }
-            rotation = 0f;
-            
             finished = true;
-            Debug.Log(finished);
+            rotation = 0f;
+            Debug.Log("Finished");        
         }
 
         // set the actor's speed and rotation

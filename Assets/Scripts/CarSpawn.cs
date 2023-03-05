@@ -7,6 +7,7 @@ public class CarSpawn : MonoBehaviour
 {
     public int count = 20;
     public GameObject carPrefab;
+    public Rigidbody actorPrefab;
     public List<GameObject> cars;
     public Transform target;
     int genTime = 20;
@@ -20,6 +21,8 @@ public class CarSpawn : MonoBehaviour
     {
         for (int i = 0; i < count; i++) {
             GameObject car = Instantiate(carPrefab, transform.position, transform.rotation);
+            Actor actor = car.GetComponent<Actor>();
+            actor.actor = actorPrefab;
             AIController ai = car.GetComponent<AIController>();
             ai.targetTransform = target;
             ai.dSpeed = Random.Range(0f, ai.actor.maxSpeed);

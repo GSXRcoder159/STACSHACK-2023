@@ -7,21 +7,21 @@ public class Actor : MonoBehaviour
     #region Fields
     public float speed = 0f;
     public float rotation = 0f;
-    public float acceleration = 30f;
-    public float rotationAcceleration = 100f;
+    public float acceleration = 5f;
+    public float rotationAcceleration = 300f;
 
     public float breakSpeed = 100f;
     public float reverseSpeed = 30f;
-    public float idleSpeed = 0f;
-    public float idleRotationSpeed = 0f;
+    public float idleSpeed = 10f;
+    public float idleRotationSpeed = 500f;
 
-    public float maxSpeed = 100f;
-    public float minSpeed = -30f;
+    public float maxSpeed = 3;
+    public float minSpeed = -2f;
     public float maxTurnSpeed = 150f;
     
 
     public float forwardVal = 0f;
-    public float turnVal = 100f;
+    public float turnVal = 0f;
 
     public Rigidbody actor;
     #endregion
@@ -31,12 +31,16 @@ public class Actor : MonoBehaviour
     }
 
     public void SetSpeed(float speed) {
-        this.speed = speed;
+        this.forwardVal = speed;
     }
 
     public void SetRotation(float rotation) {
-        this.rotation = rotation;
+        this.turnVal = rotation;
     }
+
+    // private void Awake() {
+    //     actor = GetComponent<Rigidbody>();
+    // }
 
     void Update() {
         if (forwardVal > 0) {
@@ -71,7 +75,7 @@ public class Actor : MonoBehaviour
         if (turnVal > 0 || turnVal < 0) {
             // turn
             if ((rotation > 0 && turnVal < 0) || (rotation < 0 && turnVal > 0)) {
-                rotation = turnVal * 80f;
+                rotation = turnVal * 20f;
             }
             rotation += turnVal * rotationAcceleration * Time.deltaTime;
         }

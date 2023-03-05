@@ -15,13 +15,23 @@ public class WaypointNavigator : MonoBehaviour
     void Start() {
         controller = this.gameObject.GetComponent<ActorController>();
         route = navAI.generatePath(startWaypoint, endWaypoint);
+        for (int i = 0; i < route.Count; i++) {
+            Debug.Log(route[i].gameObject.name);
+        }
         currentTarget = route[0];
         controller.setTarget(currentTarget.transform);
     }
     
     void Update()
     {
+        Debug.Log(currentTarget.gameObject.name);
         if (controller.isFinished()) {
+            if (currentTarget == endWaypoint) {
+                // End of route
+                Debug.Log("Victory");
+                controller.actor.SetSpeed(0);
+                controller.actor.SetRotation(0);
+            }
             route.Remove(currentTarget);
             if (route.Count == 0) {
                 startWaypoint = currentTarget;

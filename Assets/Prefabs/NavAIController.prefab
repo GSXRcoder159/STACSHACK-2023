@@ -132,15 +132,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   rotation: 0
-  acceleration: 30
-  rotationAcceleration: 10
+  acceleration: 5
+  rotationAcceleration: 300
   breakSpeed: 100
   reverseSpeed: 30
   idleSpeed: 10
-  idleRotationSpeed: 5
-  maxSpeed: 100
-  minSpeed: -30
-  maxTurnSpeed: 30
+  idleRotationSpeed: 500
+  maxSpeed: 3
+  minSpeed: -2
+  maxTurnSpeed: 150
   forwardVal: 0
   turnVal: 0
   actor: {fileID: 7385426963416062147}
@@ -157,10 +157,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTransform: {fileID: 0}
-  dSpeed: 5
+  dSpeed: 1
   dReverseSpeed: -2
-  dRotation: 10
-  dFinishRadius: 2
+  dRotation: 100
+  dFinishRadius: 1
+  stoppingDistance: 30
+  stoppingSpeed: 40
+  reverseTurnDistance: 25
+  stoppingSpeedLimit: 15
+  actor: {fileID: 0}
 --- !u!114 &2804038117696529705
 MonoBehaviour:
   m_ObjectHideFlags: 0

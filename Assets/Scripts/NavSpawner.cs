@@ -21,7 +21,7 @@ public class NavSpawner : MonoBehaviour
     void Awake()
     {
         for (int i = 0; i < count; i++) {
-            Debug.Log("Instantiate" + i);
+            // Debug.Log("Instantiate" + i);
             GameObject car = Instantiate(carPrefab, startWaypoint.transform.position, startWaypoint.transform.rotation);
             WaypointNavigator waypointNavigator = car.GetComponent<WaypointNavigator>();
             NavigationAI ai = car.GetComponent<NavigationAI>();
@@ -42,7 +42,7 @@ public class NavSpawner : MonoBehaviour
                 ai.actions[j] = (ai.actions[j].Item1, ai.actions[j].Item2 / weightSum); 
             }
             
-            Debug.Log("End " + i);
+            // Debug.Log("End " + i);
             cars.Add(car);
         }
         Time.timeScale = 5;
