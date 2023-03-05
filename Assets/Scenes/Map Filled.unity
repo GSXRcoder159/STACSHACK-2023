@@ -250,6 +250,10 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[0].waypoint
       value: 
       objectReference: {fileID: 875504800}
+    - target: {fileID: 814387244689479915, guid: f37b505c26515b644b51a616898a2972, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 7.3502
+      objectReference: {fileID: 0}
     - target: {fileID: 7777854101352232360, guid: f37b505c26515b644b51a616898a2972, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -1095,6 +1099,10 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[0].waypoint
       value: 
       objectReference: {fileID: 2117873100}
+    - target: {fileID: 5966876438451668178, guid: 397d6f194ff1b1a40bafd380c8f1159e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3.1502
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 397d6f194ff1b1a40bafd380c8f1159e, type: 3}
 --- !u!4 &97761345 stripped
@@ -1776,6 +1784,10 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[0].waypoint
       value: 
       objectReference: {fileID: 24856026}
+    - target: {fileID: 5966876438451668178, guid: 397d6f194ff1b1a40bafd380c8f1159e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.825
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 397d6f194ff1b1a40bafd380c8f1159e, type: 3}
 --- !u!4 &320406506 stripped
@@ -2122,6 +2134,10 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[0].waypoint
       value: 
       objectReference: {fileID: 1775050810}
+    - target: {fileID: 5966876438451668178, guid: 397d6f194ff1b1a40bafd380c8f1159e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3.2998
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 397d6f194ff1b1a40bafd380c8f1159e, type: 3}
 --- !u!114 &454271363 stripped
@@ -2290,6 +2306,10 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[0].waypoint
       value: 
       objectReference: {fileID: 1518515960}
+    - target: {fileID: 814387244689479915, guid: f37b505c26515b644b51a616898a2972, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 11.342
+      objectReference: {fileID: 0}
     - target: {fileID: 7777854101352232360, guid: f37b505c26515b644b51a616898a2972, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -2409,6 +2429,10 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[0].waypoint
       value: 
       objectReference: {fileID: 70454335}
+    - target: {fileID: 814387244314447583, guid: f37b505c26515b644b51a616898a2972, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 6.2053
+      objectReference: {fileID: 0}
     - target: {fileID: 7777854101352232360, guid: f37b505c26515b644b51a616898a2972, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -2675,6 +2699,10 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[0].waypoint
       value: 
       objectReference: {fileID: 774008276}
+    - target: {fileID: 5966876438451668178, guid: 397d6f194ff1b1a40bafd380c8f1159e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 6.7492
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 397d6f194ff1b1a40bafd380c8f1159e, type: 3}
 --- !u!4 &598561698 stripped
@@ -2890,6 +2918,10 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[0].waypoint
       value: 
       objectReference: {fileID: 2054375195}
+    - target: {fileID: 5966876438451668178, guid: 397d6f194ff1b1a40bafd380c8f1159e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3.2002
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 397d6f194ff1b1a40bafd380c8f1159e, type: 3}
 --- !u!4 &621795851 stripped
@@ -2997,6 +3029,10 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[0].waypoint
       value: 
       objectReference: {fileID: 126907107}
+    - target: {fileID: 5966876438451668178, guid: 397d6f194ff1b1a40bafd380c8f1159e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.8476
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 397d6f194ff1b1a40bafd380c8f1159e, type: 3}
 --- !u!4 &715517490 stripped
@@ -3093,6 +3129,10 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[0].waypoint
       value: 
       objectReference: {fileID: 888910046}
+    - target: {fileID: 5966876438451668178, guid: 397d6f194ff1b1a40bafd380c8f1159e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 7.2496
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 397d6f194ff1b1a40bafd380c8f1159e, type: 3}
 --- !u!4 &724595248 stripped
@@ -4143,6 +4183,10 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[0].waypoint
       value: 
       objectReference: {fileID: 1518515959}
+    - target: {fileID: 5966876438451668178, guid: 397d6f194ff1b1a40bafd380c8f1159e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3.223
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 397d6f194ff1b1a40bafd380c8f1159e, type: 3}
 --- !u!4 &998109692 stripped
@@ -4635,6 +4679,10 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[0].waypoint
       value: 
       objectReference: {fileID: 227701047}
+    - target: {fileID: 5966876438451668178, guid: 397d6f194ff1b1a40bafd380c8f1159e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.95
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 397d6f194ff1b1a40bafd380c8f1159e, type: 3}
 --- !u!4 &1182439160 stripped
@@ -4827,6 +4875,10 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[0].waypoint
       value: 
       objectReference: {fileID: 1453616362}
+    - target: {fileID: 5966876438451668178, guid: 397d6f194ff1b1a40bafd380c8f1159e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3.0998
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 397d6f194ff1b1a40bafd380c8f1159e, type: 3}
 --- !u!4 &1240908356 stripped
@@ -4923,6 +4975,10 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[0].waypoint
       value: 
       objectReference: {fileID: 2073449520}
+    - target: {fileID: 5966876438451668178, guid: 397d6f194ff1b1a40bafd380c8f1159e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3.3474
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 397d6f194ff1b1a40bafd380c8f1159e, type: 3}
 --- !u!4 &1275138674 stripped
@@ -5098,6 +5154,10 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[0].waypoint
       value: 
       objectReference: {fileID: 1450077833}
+    - target: {fileID: 4032400369423369446, guid: de3ab39cf417df5459601247b2506de9, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.3499
+      objectReference: {fileID: 0}
     - target: {fileID: 6289491557374175653, guid: de3ab39cf417df5459601247b2506de9, type: 3}
       propertyPath: m_RootOrder
       value: 36
@@ -5314,6 +5374,10 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[0].waypoint
       value: 
       objectReference: {fileID: 780790808}
+    - target: {fileID: 814387244689479915, guid: f37b505c26515b644b51a616898a2972, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 10.216
+      objectReference: {fileID: 0}
     - target: {fileID: 7777854101352232360, guid: f37b505c26515b644b51a616898a2972, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -5665,6 +5729,10 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[0].waypoint
       value: 
       objectReference: {fileID: 774165153}
+    - target: {fileID: 5966876438451668178, guid: 397d6f194ff1b1a40bafd380c8f1159e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 19.3252
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 397d6f194ff1b1a40bafd380c8f1159e, type: 3}
 --- !u!4 &1389067950 stripped
@@ -5763,7 +5831,7 @@ PrefabInstance:
       objectReference: {fileID: 618294946}
     - target: {fileID: 5966876438451668178, guid: 397d6f194ff1b1a40bafd380c8f1159e, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2.15
+      value: 16.796661
       objectReference: {fileID: 0}
     - target: {fileID: 5966876438451668178, guid: 397d6f194ff1b1a40bafd380c8f1159e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5965,6 +6033,10 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[0].waypoint
       value: 
       objectReference: {fileID: 2057152052}
+    - target: {fileID: 5966876438451668178, guid: 397d6f194ff1b1a40bafd380c8f1159e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.7988
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 397d6f194ff1b1a40bafd380c8f1159e, type: 3}
 --- !u!4 &1443639196 stripped
@@ -6061,6 +6133,10 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[0].waypoint
       value: 
       objectReference: {fileID: 389243805}
+    - target: {fileID: 5966876438451668178, guid: 397d6f194ff1b1a40bafd380c8f1159e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.8226
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 397d6f194ff1b1a40bafd380c8f1159e, type: 3}
 --- !u!4 &1450077832 stripped
@@ -6257,6 +6333,10 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[0].waypoint
       value: 
       objectReference: {fileID: 1947333479}
+    - target: {fileID: 5966876438451668178, guid: 397d6f194ff1b1a40bafd380c8f1159e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 14.2444
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 397d6f194ff1b1a40bafd380c8f1159e, type: 3}
 --- !u!4 &1456836610 stripped
@@ -6599,6 +6679,10 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[0].waypoint
       value: 
       objectReference: {fileID: 1862545869}
+    - target: {fileID: 5966876438451668178, guid: 397d6f194ff1b1a40bafd380c8f1159e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 6.625
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 397d6f194ff1b1a40bafd380c8f1159e, type: 3}
 --- !u!4 &1533415496 stripped
@@ -6899,6 +6983,10 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[0].waypoint
       value: 
       objectReference: {fileID: 1601101868}
+    - target: {fileID: 5966876438451668178, guid: 397d6f194ff1b1a40bafd380c8f1159e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 20.872
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 397d6f194ff1b1a40bafd380c8f1159e, type: 3}
 --- !u!4 &1598707999 stripped
@@ -7371,8 +7459,8 @@ Transform:
   - {fileID: 235705666}
   - {fileID: 874026956}
   - {fileID: 38191640}
-  - {fileID: 1388159344}
   - {fileID: 2057152050}
+  - {fileID: 1388159344}
   - {fileID: 1443639196}
   m_Father: {fileID: 440890171}
   m_RootOrder: 1
@@ -7802,6 +7890,10 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[0].waypoint
       value: 
       objectReference: {fileID: 1644349656}
+    - target: {fileID: 5966876438451668178, guid: 397d6f194ff1b1a40bafd380c8f1159e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3.4002
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 397d6f194ff1b1a40bafd380c8f1159e, type: 3}
 --- !u!4 &1861050544 stripped
@@ -8694,6 +8786,10 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[0].waypoint
       value: 
       objectReference: {fileID: 1871032543}
+    - target: {fileID: 5966876438451668178, guid: 397d6f194ff1b1a40bafd380c8f1159e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.85
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 397d6f194ff1b1a40bafd380c8f1159e, type: 3}
 --- !u!4 &2057152050 stripped
