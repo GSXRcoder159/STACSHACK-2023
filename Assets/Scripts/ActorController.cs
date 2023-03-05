@@ -65,15 +65,11 @@ public class ActorController : MonoBehaviour {
             }
         }
         else {
-             if (actor.GetSpeed() > stoppingSpeedLimit) {
-                speed = -1f;
-            }
-            else {
-                speed = 0f;
-            }
+            
+            speed = 0f;
+            
             finished = true;
-            rotation = 0f;
-            Debug.Log("Finished");        
+            rotation = 0f;  
         }
 
         // set the actor's speed and rotation

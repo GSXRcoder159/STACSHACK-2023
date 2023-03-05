@@ -11,7 +11,7 @@ public class NavSpawner : MonoBehaviour
     public int count = 20;
     public GameObject carPrefab;
     public List<GameObject> cars;
-    int genTime = 20;
+    int genTime = 40;
     float startTime = 0;
     public int generation = 1;
 

@@ -5,19 +5,24 @@ using UnityEngine;
 
 public class NavigationAI : MonoBehaviour
 {
-    public float randomWeight = 0.2f;
-    public float distanceGreedyWeight = 0.2f;
-    public float efficiencyGreedyWeight = 0.2f;
-    public float alwaysFirstWeight = 0.2f;
-    public float mostOptionsWeight = 0.2f;
+    public float randomWeight = 1f / 7f;
+    public float distanceGreedyWeight = 1f / 7f;
+    public float efficiencyGreedyWeight = 1f / 7f;
+    public float alwaysFirstWeight = 1f / 7f;
+    public float mostOptionsWeight = 1f / 7f;
+    
+    public float twoAheadGreedyAverageWeight = 1f / 7f;
+    public float twoAheadGreedyWeight = 1f / 7f;
     public int maxPathLength = 20;
     public float fitness;
     public Waypoint startWaypoint;
     public Waypoint targetWaypoint;
+    public bool everFinished;
 
     public List<(Func<Waypoint, Waypoint, Waypoint>, float)> actions;
     
     void Start() {
+        
         loadActionWeights();
     }
 
@@ -25,6 +30,7 @@ public class NavigationAI : MonoBehaviour
         List<Waypoint> path = new List<Waypoint>();
         float weightSum = 0f;
         Waypoint nextWaypoint = chooseNextWaypoint(startWaypoint, targetWaypoint);
+        everFinished = nextWaypoint == targetWaypoint;
         path.Add(nextWaypoint);
         weightSum += startWaypoint.waypoints.Find(waypointInf => waypointInf.waypoint == nextWaypoint).weight;
         
@@ -33,6 +39,7 @@ public class NavigationAI : MonoBehaviour
             
             weightSum += path[path.Count - 1].waypoints.Find(waypointInf => waypointInf.waypoint == nextWaypoint).weight;
             path.Add(nextWaypoint);
+            everFinished = everFinished || nextWaypoint == targetWaypoint;
 
         }
         setFitness(path, targetWaypoint, weightSum);
@@ -54,7 +61,7 @@ public class NavigationAI : MonoBehaviour
             }
         }
 
-        return chosenAction.Invoke(currentWaypoint, targetWaypoint);
+        return twoAheadGreedyWaypoint(currentWaypoint, targetWaypoint);//chosenAction.Invoke(currentWaypoint, targetWaypoint);
     }
     public void loadActionWeights() {
         actions = new List<(Func<Waypoint, Waypoint, Waypoint>, float)>{
@@ -62,7 +69,9 @@ public class NavigationAI : MonoBehaviour
             (distanceGreedyWaypoint, distanceGreedyWeight), 
             (efficiencyGreedyWaypoint, efficiencyGreedyWeight), 
             (alwaysFirstWaypoint, alwaysFirstWeight),
-            (mostOptionsWaypoint, mostOptionsWeight)
+            (mostOptionsWaypoint, mostOptionsWeight),
+            (twoAheadGreedyAverageWaypoint, twoAheadGreedyAverageWeight),
+            (twoAheadGreedyWaypoint, twoAheadGreedyWeight)
             };
     }
     public Waypoint randomWaypoint(Waypoint currentWaypoint, Waypoint targetWaypoint) {
@@ -121,8 +130,54 @@ public class NavigationAI : MonoBehaviour
         return best;
     }
 
+    public Waypoint twoAheadGreedyAverageWaypoint(Waypoint currentWaypoint, Waypoint targetWaypoint) {
+        Waypoint closest = null;
+        float closestDist = Mathf.Infinity;
+
+        foreach (WaypointInfo waypointInfo in currentWaypoint.waypoints) {
+            Waypoint waypoint = waypointInfo.waypoint;
+
+            float distAverage = 0f;
+            foreach (WaypointInfo secondWaypoint in waypoint.waypoints) {
+                distAverage += secondWaypoint.weight;
+            }
+
+            distAverage /= waypoint.waypoints.Count;
+
+            if (distAverage < closestDist) {
+                closestDist = distAverage;
+                closest = waypoint;
+            }
+        }
+
+        return closest;
+    }
+
+    public Waypoint twoAheadGreedyWaypoint(Waypoint currentWaypoint, Waypoint targetWaypoint) {
+        Waypoint closest = null;
+        float closestDist = Mathf.Infinity;
+
+        foreach (WaypointInfo waypointInfo in currentWaypoint.waypoints) {
+            Waypoint waypoint = waypointInfo.waypoint;
+
+            float localClosestDist = 0f;
+            foreach (WaypointInfo secondWaypoint in waypoint.waypoints) {
+                localClosestDist = secondWaypoint.weight < localClosestDist ? secondWaypoint.weight : localClosestDist;
+            }
+            float distSum = waypointInfo.weight + localClosestDist;
+
+            if (distSum < closestDist) {
+                closestDist = distSum;
+                closest = waypoint;
+            }
+        }
+
+        return closest;
+    }
+
+
     public void setFitness(List<Waypoint> path, Waypoint targetWaypoint, float totalWeight) {
-        if (path[path.Count - 1] == targetWaypoint) {
+        if (everFinished) {
             fitness = -totalWeight;
         }
         else {

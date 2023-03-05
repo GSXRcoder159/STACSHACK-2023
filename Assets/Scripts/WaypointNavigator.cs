@@ -16,7 +16,7 @@ public class WaypointNavigator : MonoBehaviour
         controller = this.gameObject.GetComponent<ActorController>();
         route = navAI.generatePath(startWaypoint, endWaypoint);
         for (int i = 0; i < route.Count; i++) {
-            Debug.Log(route[i].gameObject.name);
+            //Debug.Log(route[i].gameObject.name);
         }
         currentTarget = route[0];
         controller.setTarget(currentTarget.transform);
@@ -24,25 +24,33 @@ public class WaypointNavigator : MonoBehaviour
     
     void Update()
     {
-        Debug.Log(currentTarget.gameObject.name);
+        //Debug.Log(currentTarget.gameObject.name);
         if (controller.isFinished()) {
-            if (currentTarget == endWaypoint) {
+            if (currentTarget == null) {
+                controller.gameObject.SetActive(false);
+            }
+            else if (currentTarget == endWaypoint) {
                 // End of route
                 Debug.Log("Victory");
                 controller.actor.SetSpeed(0);
                 controller.actor.SetRotation(0);
-            }
-            route.Remove(currentTarget);
-            if (route.Count == 0) {
-                startWaypoint = currentTarget;
-                endWaypoint = pickRandomTarget();
-                route = navAI.generatePath(startWaypoint, endWaypoint);
+                currentTarget = null;
+                
             }
             else {
-                currentTarget = route[0];
+                route.Remove(currentTarget);
+                if (route.Count == 0) {
+                    startWaypoint = currentTarget;
+                    endWaypoint = pickRandomTarget();
+                    route = navAI.generatePath(startWaypoint, endWaypoint);
+                }
+                else {
+                    currentTarget = route[0];
+                }
+                
+                controller.setTarget(currentTarget.transform);
             }
             
-            controller.setTarget(currentTarget.transform);
         }
     }
 
