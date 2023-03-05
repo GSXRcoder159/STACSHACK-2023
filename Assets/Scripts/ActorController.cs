@@ -5,16 +5,19 @@ using UnityEngine;
 public class ActorController : MonoBehaviour {
 
     public Transform targetTransform;
+    
 
     public float dSpeed = 5f;
     public float dReverseSpeed = -2f;
     public float dRotation = 10f;
     public float dFinishRadius = 2f;
+    
+    private bool finished;
 
     private Actor actor;
     private Vector3 targetPosition;
 
-    void Awake() {
+    void Start() {
         actor = GetComponent<Actor>();
     }
 
@@ -56,10 +59,22 @@ public class ActorController : MonoBehaviour {
         else {
             speed = 0f;
             rotation = 0f;
+            
+            finished = true;
+            Debug.Log(finished);
         }
 
         // set the actor's speed and rotation
         actor.SetSpeed(speed);
         actor.SetRotation(rotation);
+    }
+    
+    public void setTarget(Transform newTarget) {
+        targetTransform = newTarget;
+        finished = false;
+    }
+
+    public bool isFinished() {
+        return finished;
     }
 }
