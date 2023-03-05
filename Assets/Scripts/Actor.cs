@@ -10,22 +10,17 @@ public class Actor : MonoBehaviour
     private float acceleration = 45f;
     private float rotationAcceleration = 50f;
 
-    private float breakSpeed = 100f;
-    private float reverseSpeed = 30f;
-    private float idleSpeed = 10f;
-    private float idleRotationSpeed = 5f;
+    public float breakSpeed = 100f;
+    public float reverseSpeed = 30f;
+    public float idleSpeed = 10f;
+    public float idleRotationSpeed = 5f;
 
     private float maxSpeed = 100f;
     private float minSpeed = -30f;
     private float maxTurnSpeed = 150f;
-
-    private float forwardVal = 0f;
-    private float turnVal = 0f;
-
-    public Rigidbody actor;
     #endregion
 
-    // private void Awake() {
+    public float forwardVal = 0f;
     //     actor = GetComponent<Rigidbody>();
     // }
 
