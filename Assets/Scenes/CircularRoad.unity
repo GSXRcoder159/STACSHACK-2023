@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -182,6 +182,7 @@ GameObject:
   - component: {fileID: 119279299}
   - component: {fileID: 119279298}
   - component: {fileID: 119279304}
+  - component: {fileID: 119279305}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -309,9 +310,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTransform: {fileID: 1036243490}
-  dSpeed: 3
+  dSpeed: 5
   dReverseSpeed: -2
-  dRotation: 10
+  dRotation: 25
+  dFinishRadius: 0.4
+--- !u!114 &119279305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119279297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 166d7b95c017982429d42bf5fb188a9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startWaypoint: {fileID: 475631508}
+  endWaypoint: {fileID: 1985963067}
 --- !u!114 &475631508 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3943791837206657474, guid: 397d6f194ff1b1a40bafd380c8f1159e, type: 3}
@@ -781,13 +797,25 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 806642601567458041, guid: f37b505c26515b644b51a616898a2972, type: 3}
+      propertyPath: waypoints.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 806642601567458041, guid: f37b505c26515b644b51a616898a2972, type: 3}
       propertyPath: waypoints.Array.data[0].waypoint
       value: 
       objectReference: {fileID: 1097211089}
     - target: {fileID: 806642601670986471, guid: f37b505c26515b644b51a616898a2972, type: 3}
+      propertyPath: waypoints.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 806642601670986471, guid: f37b505c26515b644b51a616898a2972, type: 3}
       propertyPath: waypoints.Array.data[0].waypoint
       value: 
       objectReference: {fileID: 860028487}
+    - target: {fileID: 806642602017149712, guid: f37b505c26515b644b51a616898a2972, type: 3}
+      propertyPath: waypoints.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 806642602017149712, guid: f37b505c26515b644b51a616898a2972, type: 3}
       propertyPath: waypoints.Array.data[0].waypoint
       value: 

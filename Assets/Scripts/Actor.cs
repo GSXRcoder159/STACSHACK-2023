@@ -7,8 +7,8 @@ public class Actor : MonoBehaviour
     #region Fields
     private float speed = 0f;
     private float rotation = 0f;
-    private float acceleration = 30f;
-    private float rotationAcceleration = 10f;
+    private float acceleration = 45f;
+    private float rotationAcceleration = 50f;
 
     private float breakSpeed = 100f;
     private float reverseSpeed = 30f;
@@ -17,7 +17,7 @@ public class Actor : MonoBehaviour
 
     private float maxSpeed = 100f;
     private float minSpeed = -30f;
-    private float maxTurnSpeed = 30f;
+    private float maxTurnSpeed = 150f;
 
     private float forwardVal = 0f;
     private float turnVal = 0f;
@@ -74,7 +74,7 @@ public class Actor : MonoBehaviour
         if (turnVal > 0 || turnVal < 0) {
             // turn
             if ((rotation > 0 && turnVal < 0) || (rotation < 0 && turnVal > 0)) {
-                rotation = turnVal * 20f;
+                rotation = turnVal * 80f;
             }
             rotation += turnVal * rotationAcceleration * Time.deltaTime;
         }

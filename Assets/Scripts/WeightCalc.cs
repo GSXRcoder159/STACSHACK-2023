@@ -17,7 +17,7 @@ public class WeightCalc {
         
 
 
-        return pureDist * laneChangeBias;
+        return pureDist; //return pureDist * laneChangeBias;
     }
 }
  

@@ -13,7 +13,7 @@ public class Dijkstra : MonoBehaviour
         path.Add(current);
         return getPath(parents.Find(x => x.Item1 == current).Item2, parents, path);
     }
-    static List<Waypoint> dijkstra(Waypoint startPoint, Waypoint endPoint)
+    public static List<Waypoint> dijkstra(Waypoint startPoint, Waypoint endPoint)
     {
         List<Tuple<Waypoint, float>> distance = new List<Tuple<Waypoint, float>>();
         List<Waypoint> visited = new List<Waypoint>(); 
@@ -36,7 +36,7 @@ public class Dijkstra : MonoBehaviour
                     if (!distance.Contains(new Tuple<Waypoint, float>(waypointInfo.waypoint, float.MaxValue))) {
                         distance.Add(new Tuple<Waypoint, float>(waypointInfo.waypoint, float.MaxValue));
                     }
-                    if (!unvisited.Contains(waypointInfo.waypoint) && waypointInfo.waypoint.active) {
+                    if (!unvisited.Contains(waypointInfo.waypoint) ) { //&& waypointInfo.waypoint.active
                         unvisited.Add(waypointInfo.waypoint);
                     }
                     parents.Add(new Tuple<Waypoint, Waypoint>(waypointInfo.waypoint, current));
@@ -76,17 +76,6 @@ public class Dijkstra : MonoBehaviour
         return path2;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        testDijkstra();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     // test method
     public void testDijkstra() {
