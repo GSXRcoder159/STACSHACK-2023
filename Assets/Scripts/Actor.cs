@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Actor : MonoBehaviour
 {
+    #region Fields
     public float speed = 0f;
     public float rotation = 0f;
     public float acceleration = 30f;
@@ -16,16 +17,14 @@ public class Actor : MonoBehaviour
 
     public float maxSpeed = 100f;
     public float minSpeed = -30f;
-    public float maxTurnSpeed = 30f;
+    public float maxTurnSpeed = 150f;
+    
 
     public float forwardVal = 0f;
     public float turnVal = 100f;
 
     public Rigidbody actor;
-
-    // private void Awake() {
-    //     actor = GetComponent<Rigidbody>();
-    // }
+    #endregion
 
     public float GetSpeed() {
         return speed;
@@ -72,7 +71,7 @@ public class Actor : MonoBehaviour
         if (turnVal > 0 || turnVal < 0) {
             // turn
             if ((rotation > 0 && turnVal < 0) || (rotation < 0 && turnVal > 0)) {
-                rotation = turnVal * 20f;
+                rotation = turnVal * 80f;
             }
             rotation += turnVal * rotationAcceleration * Time.deltaTime;
         }

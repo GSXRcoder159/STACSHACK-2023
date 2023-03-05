@@ -15,7 +15,7 @@ public class ActorController : MonoBehaviour {
     private Actor actor;
     private Vector3 targetPosition;
 
-    void Awake() {
+    void Start() {
         actor = GetComponent<Actor>();
     }
 
@@ -63,10 +63,22 @@ public class ActorController : MonoBehaviour {
                 Debug.Log("Reached target");
             }
             rotation = 0f;
+            
+            finished = true;
+            Debug.Log(finished);
         }
 
         // set the actor's speed and rotation
         actor.SetSpeed(speed);
         actor.SetRotation(rotation);
+    }
+    
+    public void setTarget(Transform newTarget) {
+        targetTransform = newTarget;
+        finished = false;
+    }
+
+    public bool isFinished() {
+        return finished;
     }
 }
