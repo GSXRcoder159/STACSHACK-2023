@@ -10,7 +10,7 @@ public class NavigationAI : MonoBehaviour
     public float efficiencyGreedyWeight = 1f / 7f;
     public float alwaysFirstWeight = 1f / 7f;
     public float mostOptionsWeight = 1f / 7f;
-    
+
     public float twoAheadGreedyAverageWeight = 1f / 7f;
     public float twoAheadGreedyWeight = 1f / 7f;
     public int maxPathLength = 20;
@@ -20,9 +20,9 @@ public class NavigationAI : MonoBehaviour
     public bool everFinished;
 
     public List<(Func<Waypoint, Waypoint, Waypoint>, float)> actions;
-    
+
     void Start() {
-        
+
         loadActionWeights();
     }
 
@@ -33,10 +33,10 @@ public class NavigationAI : MonoBehaviour
         everFinished = nextWaypoint == targetWaypoint;
         path.Add(nextWaypoint);
         weightSum += startWaypoint.waypoints.Find(waypointInf => waypointInf.waypoint == nextWaypoint).weight;
-        
+
         while (path.Count < maxPathLength && path[path.Count - 1] != targetWaypoint) {
             nextWaypoint = chooseNextWaypoint(path[path.Count - 1], targetWaypoint);
-            
+
             weightSum += path[path.Count - 1].waypoints.Find(waypointInf => waypointInf.waypoint == nextWaypoint).weight;
             path.Add(nextWaypoint);
             everFinished = everFinished || nextWaypoint == targetWaypoint;
@@ -48,6 +48,7 @@ public class NavigationAI : MonoBehaviour
     }
     public Waypoint chooseNextWaypoint (Waypoint currentWaypoint, Waypoint targetWaypoint) {
         float choice = UnityEngine.Random.Range(0, 1);
+        // float choice = 0.5f;
         Func<Waypoint, Waypoint, Waypoint> chosenAction = null;
 
         foreach (ValueTuple<Func<Waypoint, Waypoint, Waypoint>, float> tuple in actions) {
@@ -61,13 +62,14 @@ public class NavigationAI : MonoBehaviour
             }
         }
 
-        return twoAheadGreedyWaypoint(currentWaypoint, targetWaypoint);//chosenAction.Invoke(currentWaypoint, targetWaypoint);
+        // return efficiencyGreedyWaypoint(currentWaypoint, targetWaypoint);
+        return chosenAction.Invoke(currentWaypoint, targetWaypoint);
     }
     public void loadActionWeights() {
         actions = new List<(Func<Waypoint, Waypoint, Waypoint>, float)>{
-            (randomWaypoint, randomWeight), 
-            (distanceGreedyWaypoint, distanceGreedyWeight), 
-            (efficiencyGreedyWaypoint, efficiencyGreedyWeight), 
+            (randomWaypoint, randomWeight),
+            (distanceGreedyWaypoint, distanceGreedyWeight),
+            (efficiencyGreedyWaypoint, efficiencyGreedyWeight),
             (alwaysFirstWaypoint, alwaysFirstWeight),
             (mostOptionsWaypoint, mostOptionsWeight),
             (twoAheadGreedyAverageWaypoint, twoAheadGreedyAverageWeight),
@@ -121,7 +123,7 @@ public class NavigationAI : MonoBehaviour
         foreach (WaypointInfo waypointInfo in currentWaypoint.waypoints) {
             Waypoint waypoint = waypointInfo.waypoint;
             int options = waypointInfo.waypoint.waypoints.Count;
-            
+
             if (options > highestOptions) {
                 highestOptions = options;
                 best = waypoint;

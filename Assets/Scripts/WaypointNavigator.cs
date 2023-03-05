@@ -8,34 +8,36 @@ public class WaypointNavigator : MonoBehaviour
    public Waypoint endWaypoint;
    public NavigationAI navAI;
    Waypoint currentTarget;
-   
+
    ActorController controller;
    List<Waypoint> route;
 
     void Start() {
         controller = this.gameObject.GetComponent<ActorController>();
         route = navAI.generatePath(startWaypoint, endWaypoint);
-        for (int i = 0; i < route.Count; i++) {
-            //Debug.Log(route[i].gameObject.name);
-        }
+        // for (int i = 0; i < route.Count; i++) {
+        //     Debug.Log(route[i].gameObject.name);
+        // }
         currentTarget = route[0];
         controller.setTarget(currentTarget.transform);
     }
-    
+
     void Update()
     {
         //Debug.Log(currentTarget.gameObject.name);
         if (controller.isFinished()) {
-            if (currentTarget == null) {
-                controller.gameObject.SetActive(false);
-            }
-            else if (currentTarget == endWaypoint) {
+            // if (currentTarget == null) {
+            //     controller.gameObject.SetActive(false);
+            // }
+            if (currentTarget == endWaypoint || route.Count == 0) {
                 // End of route
                 Debug.Log("Victory");
                 controller.actor.SetSpeed(0);
                 controller.actor.SetRotation(0);
-                currentTarget = null;
-                
+                controller.gameObject.SetActive(false);
+                route = new List<Waypoint>();
+                // currentTarget = null;
+
             }
             else {
                 route.Remove(currentTarget);
@@ -47,10 +49,10 @@ public class WaypointNavigator : MonoBehaviour
                 else {
                     currentTarget = route[0];
                 }
-                
+
                 controller.setTarget(currentTarget.transform);
             }
-            
+
         }
     }
 

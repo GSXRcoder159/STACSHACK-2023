@@ -65,18 +65,16 @@ public class ActorController : MonoBehaviour {
             }
         }
         else {
-            
             speed = 0f;
-            
             finished = true;
-            rotation = 0f;  
+            rotation = 0f;
         }
 
         // set the actor's speed and rotation
         actor.SetSpeed(speed);
         actor.SetRotation(rotation);
     }
-    
+
     public void setTarget(Transform newTarget) {
         targetTransform = newTarget;
         finished = false;

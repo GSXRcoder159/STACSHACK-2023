@@ -11,7 +11,7 @@ public class NavSpawner : MonoBehaviour
     public int count = 20;
     public GameObject carPrefab;
     public List<GameObject> cars;
-    int genTime = 40;
+    int genTime = 60;
     float startTime = 0;
     public int generation = 1;
 
@@ -35,13 +35,13 @@ public class NavSpawner : MonoBehaviour
             for (int j = 0; j < ai.actions.Count; j++) {
                 float weight = Random.Range(0f, 1f);
                 weightSum += weight;
-                ai.actions[j] = (ai.actions[j].Item1, weight); 
+                ai.actions[j] = (ai.actions[j].Item1, weight);
             }
 
             for (int j = 0; j < ai.actions.Count; j++) {
-                ai.actions[j] = (ai.actions[j].Item1, ai.actions[j].Item2 / weightSum); 
+                ai.actions[j] = (ai.actions[j].Item1, ai.actions[j].Item2 / weightSum);
             }
-            
+
             // Debug.Log("End " + i);
             cars.Add(car);
         }
@@ -62,10 +62,10 @@ public class NavSpawner : MonoBehaviour
 
         for (int j = 0; j < ai.actions.Count; j++) {
             float newWeight = (parent1.actions[j].Item2 + parent2.actions[j].Item2) / 2.0f;
-            ai.actions[j] = (ai.actions[j].Item1, newWeight); 
+            ai.actions[j] = (ai.actions[j].Item1, newWeight);
         }
-        
-        
+
+
         return car;
     }
 
@@ -85,7 +85,7 @@ public class NavSpawner : MonoBehaviour
         }
 
 
-    
+
         List<GameObject> sortedCars = completedCars;
         sortedCars.AddRange(uncompletedCars);
         int half = (int)(sortedCars.Count / 2.0f);
