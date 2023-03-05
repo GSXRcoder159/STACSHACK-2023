@@ -5,24 +5,26 @@ using UnityEngine;
 public class Actor : MonoBehaviour
 {
     #region Fields
-    private float speed = 0f;
-    private float rotation = 0f;
-    private float acceleration = 45f;
-    private float rotationAcceleration = 50f;
+    public float speed = 0f;
+    public float rotation = 0f;
+    public float acceleration = 45f;
+    public float rotationAcceleration = 50f;
 
     public float breakSpeed = 100f;
     public float reverseSpeed = 30f;
     public float idleSpeed = 10f;
     public float idleRotationSpeed = 5f;
 
-    private float maxSpeed = 100f;
-    private float minSpeed = -30f;
-    private float maxTurnSpeed = 150f;
-    #endregion
+    public float maxSpeed = 100f;
+    public float minSpeed = -30f;
+    public float maxTurnSpeed = 150f;
+    
 
     public float forwardVal = 0f;
-    //     actor = GetComponent<Rigidbody>();
-    // }
+    public float turnVal = 0f;
+
+    public Rigidbody actor;
+    #endregion
 
     public float GetSpeed() {
         return speed;

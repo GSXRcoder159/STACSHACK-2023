@@ -17,7 +17,7 @@ public class ActorController : MonoBehaviour {
     private Actor actor;
     private Vector3 targetPosition;
 
-    void Awake() {
+    void Start() {
         actor = GetComponent<Actor>();
     }
 
@@ -59,7 +59,9 @@ public class ActorController : MonoBehaviour {
         else {
             speed = 0f;
             rotation = 0f;
+            
             finished = true;
+            Debug.Log(finished);
         }
 
         // set the actor's speed and rotation

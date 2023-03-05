@@ -11,6 +11,9 @@ public class NavigationAI : MonoBehaviour
     public float alwaysFirstWeight = 0.2f;
     public float mostOptionsWeight = 0.2f;
     public int maxPathLength = 20;
+    public float fitness;
+    public Waypoint startWaypoint;
+    public Waypoint targetWaypoint;
 
     public List<(Func<Waypoint, Waypoint, Waypoint>, float)> actions;
     
@@ -20,12 +23,19 @@ public class NavigationAI : MonoBehaviour
 
     public List<Waypoint> generatePath(Waypoint startWaypoint, Waypoint targetWaypoint) {
         List<Waypoint> path = new List<Waypoint>();
-        path.Add(chooseNextWaypoint(startWaypoint, targetWaypoint));
+        float weightSum = 0f;
+        Waypoint nextWaypoint = chooseNextWaypoint(startWaypoint, targetWaypoint);
+        path.Add(nextWaypoint);
+        weightSum += startWaypoint.waypoints.Find(waypointInf => waypointInf.waypoint == nextWaypoint).weight;
         
-        while (path.Count < maxPathLength && path[path.Count] != targetWaypoint) {
-            path.Add(chooseNextWaypoint(path[path.Count], targetWaypoint));
-        }
+        while (path.Count < maxPathLength && path[path.Count - 1] != targetWaypoint) {
+            nextWaypoint = chooseNextWaypoint(path[path.Count - 1], targetWaypoint);
+            
+            weightSum += path[path.Count - 1].waypoints.Find(waypointInf => waypointInf.waypoint == nextWaypoint).weight;
+            path.Add(nextWaypoint);
 
+        }
+        setFitness(path, targetWaypoint, weightSum);
         return path;
 
     }
@@ -40,7 +50,6 @@ public class NavigationAI : MonoBehaviour
             choice -= weight;
             if (choice <= 0f) {
                 chosenAction = action;
-                Debug.Log("Chose " + chosenAction);
                 break;
             }
         }
@@ -49,7 +58,8 @@ public class NavigationAI : MonoBehaviour
     }
     public void loadActionWeights() {
         actions = new List<(Func<Waypoint, Waypoint, Waypoint>, float)>{
-            (randomWaypoint,randomWeight), (distanceGreedyWaypoint, distanceGreedyWeight), 
+            (randomWaypoint, randomWeight), 
+            (distanceGreedyWaypoint, distanceGreedyWeight), 
             (efficiencyGreedyWaypoint, efficiencyGreedyWeight), 
             (alwaysFirstWaypoint, alwaysFirstWeight),
             (mostOptionsWaypoint, mostOptionsWeight)
@@ -109,5 +119,14 @@ public class NavigationAI : MonoBehaviour
             }
         }
         return best;
+    }
+
+    public void setFitness(List<Waypoint> path, Waypoint targetWaypoint, float totalWeight) {
+        if (path[path.Count - 1] == targetWaypoint) {
+            fitness = -totalWeight;
+        }
+        else {
+            fitness = Vector3.Distance(path[path.Count - 1].transform.position, targetWaypoint.transform.position);
+        }
     }
 }
